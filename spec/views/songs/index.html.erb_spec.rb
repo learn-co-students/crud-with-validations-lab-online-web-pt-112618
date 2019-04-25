@@ -19,10 +19,20 @@ RSpec.describe 'songs/index', type: :feature do
     }
   end
 
+  let(:song_attributes_3) do
+    {
+      title: 'Rhythms Which I Played Again and Again',
+      release_year: 2007,
+      released: true,
+      genre: 'Sci-Crust Fizz-Punk',
+      artist_name: 'Man With Instruments'
+    }
+  end
+
   before { Song.create!([song_attributes_1, song_attributes_2]) }
 
   it 'renders a list of songs' do
     visit songs_path
-    expect(all('tbody > tr').size).to eq(2)
+    expect(all('tbody > tr').size).to eq(3)
   end
 end
